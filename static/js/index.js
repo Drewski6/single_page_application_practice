@@ -1,5 +1,7 @@
 // 
 import Dashboard from "./views/Dashboard.js";
+import Posts from "./views/Posts.js";
+import Settings from "./views/Settings.js";
 
 // Allows us to use the history API to navigate to different routes
 const navigateTo = url => {
@@ -10,18 +12,9 @@ const navigateTo = url => {
 // This class handles routes for the single page application
 const router = async () => {
   const routes = [
-    { 
-      path: '/', 
-      view: Dashboard
-    },
-    // { 
-    //   path: '/posts', 
-    //   view: () => render('Viewing Posts') 
-    // },
-    // { 
-    //   path: '/settings', 
-    //   view: () => render('Viewing Settings') 
-    // }
+    { path: '/', view: Dashboard },
+    { path: '/posts', view: Posts },
+    { path: '/settings', view: Settings }
   ];
 
   // Uses the map method to create an array of objects that contain the route and whether or not it matches the current location
