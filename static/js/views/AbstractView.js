@@ -1,7 +1,9 @@
 // An Abstract class for all views
 export default class {
-  constructor() {
+  constructor(params) {
+    this.params = params;
 
+    // console.log(params);
   }
 
   // Updated the title of the document when a new view is rendered
