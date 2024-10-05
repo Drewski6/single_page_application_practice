@@ -16,6 +16,13 @@ else
   echo "Django project already exists"
 fi
 
+cd $SITE_NAME
+
+# Make migrations
+python3 manage.py makemigrations
+python3 manage.py migrate
+
 echo "Starting django server"
 
-tail -f /dev/null
+# Return to Dockerfile CMD
+exec "$@"

@@ -12,4 +12,8 @@ COPY ./tools/docker-entrypoint.sh .
 
 RUN mkdir -p /app/django_data
 
+COPY ./django_data /app/django_data
+
 ENTRYPOINT ["bash", "docker-entrypoint.sh" ]
+
+CMD ["python3", "manage.py", "runserver", "0.0.0.0:5000"]
