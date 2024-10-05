@@ -19,5 +19,5 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /mnt/nfs/homes/dpentlan/Documents/code/js/spa_test/django/django_data
+      device: /mnt/nfs/homes/dpentlan/Documents/code/js/single_page_application_practice/django/django_data
       o: bind
