@@ -5,7 +5,7 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - django_data:/app
+      - django_data:/app/django_data
     env_file:
       - .env
     # depends_on:
@@ -17,3 +17,7 @@ volumes:
   django_data:
     name: django_data
     driver: local
+    driver_opts:
+      type: none
+      device: /mnt/nfs/homes/dpentlan/Documents/code/js/spa_test/django/django_data
+      o: bind

@@ -10,4 +10,6 @@ RUN pip3 install -r requirements.txt
 
 COPY ./tools/docker-entrypoint.sh .
 
+RUN mkdir -p /app/django_data
+
 ENTRYPOINT ["bash", "docker-entrypoint.sh" ]
