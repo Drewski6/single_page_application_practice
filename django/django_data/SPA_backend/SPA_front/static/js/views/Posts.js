@@ -1,4 +1,5 @@
 import AbstractView from "./AbstractView.js";
+import { navigateTo } from "../index.js";
 
 export default class extends AbstractView {
   constructor(params) {
@@ -7,19 +8,33 @@ export default class extends AbstractView {
   }
 
   async getHtml() {
-    return `
-      <p>
-        You are viewing the posts!
-      </p>
-      <p>
-        <a href="/posts/1" data-link>View Post 1</a>.
-      </p>
-      <p>
-        <a href="/posts/2" data-link>View Post 2</a>.
-      </p>
-      <p>
-        <a href="/posts/3" data-link>View Post 3</a>.
-      </p>
+
+    const response = await fetch('http://localhost:5000/api/blogposts');
+    const data = await response.json();
+
+    let content = `
+      <p>Posts</p> 
+      <button id="createPost">New Post</button>
+      <ul>
     `;
+
+    data.forEach(item => {  
+      content += `
+        <p><a href="/posts/${item.id}" data-link>${item.title}</a></p>
+      `;
+    });
+
+    content += `</ul>`;
+
+    return content;
+  }
+
+  async afterRender() {
+    const createPost = document.getElementById("createPost");
+
+    createPost.addEventListener('click', () => {
+      navigateTo('http://localhost:5000/posts/new_post');
+      // console.log('create post');
+    });
   }
 }

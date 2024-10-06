@@ -7,11 +7,15 @@ export default class extends AbstractView {
   }
 
   async getHtml() {
-    console.log(this.params.id);
-    return `
-      <p>
-        You are viewing the posts in viewpost!
-      </p>
+    const response = await fetch(`http://localhost:5000/api/blogposts/${this.params.id}`);
+    const data = await response.json();
+
+    let content = `
+      <h4>${data.title}</h4> 
+      <p>${data.published}</p>
+      <p>${data.content}</p>
     `;
+
+    return content;
   }
 }

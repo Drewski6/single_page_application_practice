@@ -20,9 +20,8 @@ from django.urls import path, include
 # Adding posts/ and settings/ will always redirect to home on refresh, may need to fix this
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('api/', include('api_app.urls')),
     path('', include('SPA_front.urls')),
+    path('api/', include('api_app.urls')),
     path('posts/', include('SPA_front.urls')),
-    path('data/', include('SPA_front.urls')),
     path('settings/', include('SPA_front.urls')),
 ]

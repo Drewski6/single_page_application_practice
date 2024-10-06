@@ -11,8 +11,8 @@
     - Indicate the name of the app we are making.
 
 ### TODO
-- [ ] Add app for my spa code and have it render.
-- [ ] Have the spa use the api app and render the info
+- [X] Add app for my spa code and have it render.
+- [X] Have the spa use the api app and render the info
 - [ ] Figure out how an api is supposed to be made and secured.
 - [ ] EXTRA:
   - [ ] Create a container for a database rather than using the sqlite3 database.

@@ -1,9 +1,9 @@
 // Import the views
 import Dashboard from "./views/Dashboard.js";
 import Posts from "./views/Posts.js";
-import Data from "./views/Data.js";
 import Settings from "./views/Settings.js";
 import ViewPost from "./views/ViewPost.js";
+import NewPost from "./views/NewPost.js";
 
 // Create a regex to replace the path with something.
 const pathToRegex = path => new RegExp('^' + path.replace(/\//g, "\\/").replace(/:\w+/g, '(.+)') + '$');
@@ -19,7 +19,7 @@ const getParams = match => {
 }
 
 // Allows us to use the history API to navigate to different routes
-const navigateTo = url => {
+export const navigateTo = url => {
   history.pushState(null, null, url);
   router();
 }
@@ -32,8 +32,8 @@ const router = async () => {
   const routes = [
     { path: '/', view: Dashboard },
     { path: '/posts', view: Posts },
+    { path: '/posts/new_post', view: NewPost },
     { path: '/posts/:id', view: ViewPost },
-    { path: '/data', view: Data },
     { path: '/settings', view: Settings }
   ];
 
@@ -61,6 +61,7 @@ const router = async () => {
 
   // Uses the view instance we just created to render the view
   document.querySelector('#app').innerHTML = await view.getHtml();
+  await view.afterRender();
 };
 
 // This event listener listens for a popstate event and calls the router function

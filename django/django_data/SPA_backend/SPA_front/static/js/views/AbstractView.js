@@ -16,4 +16,8 @@ export default class {
     return "";
   }
 
+  async afterRender() {
+    // After the view is rendered, this function will be called.
+  }
+
 }
