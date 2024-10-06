@@ -1,6 +1,7 @@
 // Import the views
 import Dashboard from "./views/Dashboard.js";
 import Posts from "./views/Posts.js";
+import Data from "./views/Data.js";
 import Settings from "./views/Settings.js";
 import ViewPost from "./views/ViewPost.js";
 
@@ -32,6 +33,7 @@ const router = async () => {
     { path: '/', view: Dashboard },
     { path: '/posts', view: Posts },
     { path: '/posts/:id', view: ViewPost },
+    { path: '/data', view: Data },
     { path: '/settings', view: Settings }
   ];
 
