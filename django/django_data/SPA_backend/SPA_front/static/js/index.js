@@ -4,6 +4,7 @@ import Posts from "./views/Posts.js";
 import Settings from "./views/Settings.js";
 import ViewPost from "./views/ViewPost.js";
 import NewPost from "./views/NewPost.js";
+import Page404 from "./views/Page404.js";
 
 // Create a regex to replace the path with something.
 const pathToRegex = path => new RegExp('^' + path.replace(/\//g, "\\/").replace(/:\w+/g, '(.+)') + '$');
@@ -34,7 +35,8 @@ const router = async () => {
     { path: '/posts', view: Posts },
     { path: '/posts/new_post', view: NewPost },
     { path: '/posts/:id', view: ViewPost },
-    { path: '/settings', view: Settings }
+    { path: '/settings', view: Settings },
+    { path: '/Page404', view: Page404 },
   ];
 
   // Uses the map method to create an array of objects that contain the route and whether or not it matches the current location
@@ -51,7 +53,7 @@ const router = async () => {
   // If no match is found, the default route '/' is used
   if (!match) {
     match = {
-      route: routes[0],
+      route: routes[routes.length - 1],
       result: [location.pathname]
     };
   }
