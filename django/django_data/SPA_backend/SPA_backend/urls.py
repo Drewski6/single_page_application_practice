@@ -15,13 +15,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 
 # Adding posts/ and settings/ will always redirect to home on refresh, may need to fix this
+# check if there an a call to the api, if not redirect to frontend.
 urlpatterns = [
-    # path('admin/', admin.site.urls),
     path('', include('SPA_front.urls')),
     path('api/', include('api_app.urls')),
-    path('posts/', include('SPA_front.urls')),
-    path('settings/', include('SPA_front.urls')),
+    re_path(r'^.*/', include('SPA_front.urls')),
 ]

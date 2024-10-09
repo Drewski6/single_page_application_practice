@@ -13,6 +13,7 @@
 ### TODO
 - [X] Add app for my spa code and have it render.
 - [X] Have the spa use the api app and render the info
+- [X] Send and receive information via the api from the frontend
 - [ ] Figure out how an api is supposed to be made and secured.
 - [ ] EXTRA:
   - [ ] Create a container for a database rather than using the sqlite3 database.

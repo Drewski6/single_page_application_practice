@@ -37,6 +37,8 @@ const router = async () => {
     { path: '/settings', view: Settings }
   ];
 
+  console.log(location.pathname);
+
   // Uses the map method to create an array of objects that contain the route and whether or not it matches the current location
   const potentialMatches = routes.map(route => {
     return {
