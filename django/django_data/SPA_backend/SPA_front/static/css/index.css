@@ -5,6 +5,14 @@ body {
   font-size: 18px;
 }
 
+a {
+  color: #009579;
+}
+
+pre {
+  margin: 0;
+}
+
 .nav {
   position: fixed;
   top: 0;
@@ -26,14 +34,18 @@ body {
   background: rgba(255, 255, 255, 0.05);
 }
 
+.responseBox {
+  width: 100%;
+  padding: 0;
+  text-align: left;
+  vertical-align: top;
+  background-color: rgb(215, 210, 210);
+}
+
 #app {
   margin: 2em;
   line-height: 1.5;
   font-weight: 500;
-}
-
-a {
-  color: #009579;
 }
 
 #userContent {
