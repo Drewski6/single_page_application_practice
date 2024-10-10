@@ -36,7 +36,6 @@ const router = async () => {
     { path: '/posts/new_post', view: NewPost },
     { path: '/posts/:id', view: ViewPost },
     { path: '/settings', view: Settings },
-    { path: '/Page404', view: Page404 },
   ];
 
   // Uses the map method to create an array of objects that contain the route and whether or not it matches the current location
@@ -50,10 +49,10 @@ const router = async () => {
   // creates a match object that contains the route and whether or not it is a match
   let match = potentialMatches.find(potentialMatch => potentialMatch.result !== null);
 
-  // If no match is found, the default route '/' is used
+  // If no match is found, use the 404 page.
   if (!match) {
     match = {
-      route: routes[routes.length - 1],
+      route: { path: '', view: Page404 },
       result: [location.pathname]
     };
   }
