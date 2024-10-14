@@ -1,8 +1,8 @@
-from django.shortcuts import render
-from rest_framework import generics
+from django.shortcuts import render # type: ignore
+from rest_framework import generics # type: ignore
 from .models import BlogPost
 from .serializers import BlogPostSerializer
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse, HttpResponse # type: ignore
 
 # Create your views here.
 
